@@ -1,0 +1,13 @@
+(define (square x) (* x x))
+(define (squaresum x y) (+ (square x) (square y)))
+
+(define (sumoflargesttwosquared x y z)
+  (cond ((and (>= (+ x y) (+ y z)) (>= (+ y z) (+ x z)) )(squaresum x y))
+        ((and (<= (+ x z) (+ x y)) (<= (+ x z) (+ y z))) (squaresum x z))
+        (else (squaresum y z))
+  )
+)
+
+(sumoflargesttwosquared 1 2 3)
+(sumoflargesttwosquared 23 48 688)
+(sumoflargesttwosquared 393 1 2)
